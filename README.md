@@ -1,4 +1,4 @@
-# ANTIGRAVITY — Daily Naija Trivia
+# Daily Naija Trivia
 
 A premium, offline-first trivia platform celebrating Nigerian culture.
 
