@@ -1,6 +1,7 @@
 # 🇳🇬 Daily Naija Trivia
-
 ### _Celebrating Nigerian Culture, One Question at a Time._
+
+![Hero Image](C:/Users/User/.gemini/antigravity/brain/be58074c-513a-4374-9466-2361b1772d59/naija_trivia_hero_mockup_1773498943488.png)
 
 Daily Naija Trivia is a premium, offline-first mobile platform designed to reconnect Nigerians and the world with the rich tapestry of Nigeria's history, sports, music, and pop culture. Built with a "million-dollar" aesthetic, it combines cutting-edge AI content generation with a seamless, high-performance mobile experience.
 
@@ -55,12 +56,13 @@ We don't just "ask questions." Our AI engine (powered by `Gemini Pro`) is tuned 
 
 ---
 
-## 🚀 Roadmap: To the Moon
-
+## 🚀 Roadmap: The Path to Production
+- [ ] **Onboarding & Auth**: Interactive cultural intro and social login.
+- [ ] **Leaderboards**: Daily/Weekly rankings by state and interest.
+- [ ] **Monetization Engine**: Integrated Paystack/Flutterwave for Premium Packs.
 - [ ] **Multi-lingual Support**: Trivia in Pidgin, Yoruba, Igbo, and Hausa.
-- [ ] **Head-to-Head Challenges**: Real-time multiplayer trivia battles.
-- [ ] **Cultural Badges**: Collectible NFTs/Digital assets for mastering specific historical eras.
-- [ ] **AR Cultural Artifacts**: View 3D models of Nigerian artifacts upon answering correctly.
+- [ ] **Sponsored Challenges**: Partnership-driven rewards with major Nigerian brands.
+- [ ] **AR Cultural Artifacts**: View 3D models of Nigerian heritage items.
 
 ---
 
@@ -81,4 +83,4 @@ We don't just "ask questions." Our AI engine (powered by `Gemini Pro`) is tuned 
 
 ## 💎 Design Philosophy
 
-Our design prompt prioritizes **Emerald Greens**, **Metallic Golds**, and **Glassmorphism**. For the full visual specification and mockup references, refer to our [Premium Design Prompt](C:\Users\User.gemini\antigravity\brain\be58074c-513a-4374-9466-3261b1772d59\design_prompt.md).
+Our design prompt prioritizes **Emerald Greens**, **Metallic Golds**, and **Glassmorphism**. For the full visual specification and mockup references, refer to our [Premium Design Prompt](C:/Users/User/.gemini/antigravity/brain/be58074c-513a-4374-9466-2361b1772d59/design_prompt.md).
