@@ -58,12 +58,12 @@ export const submitScore = functions.https.onCall(async (data, context) => {
         throw new functions.https.HttpsError("out-of-range", "Score exceeds absolute maximum possible value.");
     }
 
-    // Assuming a standard pack has at least 5-10 questions, but we'll use a safer fixed floor for now
-    // or if the client sends questionCount, we could use that.
-    const minTimeFloor = 5; // Absolute minimum seconds for any pack
+    // Assuming a standard pack has at least 5-10 questions. 
+    // If packId is known, we could fetch question count, but for now we use a reasonable floor.
+    const minTimeFloor = 5 * MIN_SPEED_PER_QUESTION; 
     if (timeTaken < minTimeFloor) {
         console.warn(`Tamper alert: User ${uid} submitted impossible speed ${timeTaken}s.`);
-        throw new functions.https.HttpsError("out-of-range", "Completion speed is physically impossible.");
+        throw new functions.https.HttpsError("out-of-range", `Completion speed is physically impossible (Min threshold: ${minTimeFloor}s).`);
     }
 
     // Rate Limiting / Abuse Prevention
