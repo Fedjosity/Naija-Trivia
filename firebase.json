@@ -13,5 +13,15 @@
   },
   "storage": {
     "rules": "storage.rules"
+  },
+  "auth": {
+    "providers": {
+      "anonymous": true,
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "Naija Trivia",
+        "supportEmail": "fedjostty@gmail.com"
+      }
+    }
   }
 }
