@@ -5,8 +5,8 @@ admin.initializeApp();
 const db = admin.firestore();
 
 // Maximum allowed score values to validate against tempering
-const MAX_SCORE_PER_PACK = 10000;
-const MIN_POSSIBLE_SPEED = 20; 
+const MAX_SCORE_LIMIT = 5000; // Hard cap for extreme cases
+const MIN_SPEED_PER_QUESTION = 1.5; // Seconds per question
 
 /**
  * Initialize the user profile on account creation
@@ -53,14 +53,17 @@ export const submitScore = functions.https.onCall(async (data, context) => {
         throw new functions.https.HttpsError("invalid-argument", "Missing required score properties.");
     }
 
-    if (score > MAX_SCORE_PER_PACK) {
+    if (score > MAX_SCORE_LIMIT) {
         console.warn(`Tamper alert: User ${uid} submitted impossible score ${score}.`);
-        throw new functions.https.HttpsError("out-of-range", "Score exceeds maximum possible value.");
+        throw new functions.https.HttpsError("out-of-range", "Score exceeds absolute maximum possible value.");
     }
 
-    if (timeTaken < MIN_POSSIBLE_SPEED) {
+    // Assuming a standard pack has at least 5-10 questions, but we'll use a safer fixed floor for now
+    // or if the client sends questionCount, we could use that.
+    const minTimeFloor = 5; // Absolute minimum seconds for any pack
+    if (timeTaken < minTimeFloor) {
         console.warn(`Tamper alert: User ${uid} submitted impossible speed ${timeTaken}s.`);
-        throw new functions.https.HttpsError("out-of-range", "Completion speed is impossibly fast.");
+        throw new functions.https.HttpsError("out-of-range", "Completion speed is physically impossible.");
     }
 
     // Rate Limiting / Abuse Prevention
