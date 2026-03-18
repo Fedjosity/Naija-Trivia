@@ -1,0 +1,130 @@
+{
+  "packId": "ng-history-001",
+  "title": "Foundations of Nigerian History",
+  "category": "history",
+  "difficulty": "beginner",
+  "version": 1,
+  "questionCount": 10,
+  "questions": [
+    {
+      "id": "q1",
+      "text": "In what year did Nigeria gain independence from Britain?",
+      "options": ["1957", "1960", "1963", "1970"],
+      "correctAnswerIndex": 1,
+      "explanation": "Nigeria gained independence from British colonial rule on October 1, 1960.",
+      "culturalContext": "October 1st is celebrated annually as Nigeria's Independence Day across all 36 states and the FCT.",
+      "tags": ["independence", "colonial-history"]
+    },
+    {
+      "id": "q2",
+      "text": "Who became Nigeria's first Prime Minister after independence?",
+      "options": [
+        "Nnamdi Azikiwe",
+        "Abubakar Tafawa Balewa",
+        "Obafemi Awolowo",
+        "Yakubu Gowon"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Sir Abubakar Tafawa Balewa served as Nigeria's first Prime Minister from 1960 to 1966.",
+      "culturalContext": "Balewa played a key role in negotiating Nigeria's independence and represented the Northern People's Congress.",
+      "tags": ["politics", "independence"]
+    },
+    {
+      "id": "q3",
+      "text": "Which Nigerian city served as the capital before Abuja?",
+      "options": ["Ibadan", "Lagos", "Kaduna", "Benin City"],
+      "correctAnswerIndex": 1,
+      "explanation": "Lagos served as Nigeria's capital until it was officially moved to Abuja in 1991.",
+      "culturalContext": "Lagos remains Nigeria's economic hub and one of the largest cities in Africa.",
+      "tags": ["geography", "cities"]
+    },
+    {
+      "id": "q4",
+      "text": "Nigeria became a republic in which year?",
+      "options": ["1960", "1963", "1979", "1983"],
+      "correctAnswerIndex": 1,
+      "explanation": "Nigeria became a republic on October 1, 1963, ending its status as a constitutional monarchy under the British crown.",
+      "culturalContext": "Nnamdi Azikiwe became Nigeria's first President when the country adopted the republican constitution.",
+      "tags": ["politics", "constitution"]
+    },
+    {
+      "id": "q5",
+      "text": "What is the name of Nigeria's national anthem adopted in 1978?",
+      "options": [
+        "Nigeria We Hail Thee",
+        "Arise, O Compatriots",
+        "Unity and Faith",
+        "Land of Hope"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "The anthem 'Arise, O Compatriots' replaced the earlier anthem 'Nigeria We Hail Thee' in 1978.",
+      "culturalContext": "The anthem emphasizes unity, peace, and progress across Nigeria's many ethnic groups.",
+      "tags": ["culture", "national-symbols"]
+    },
+    {
+      "id": "q6",
+      "text": "How many states are currently in Nigeria?",
+      "options": ["30", "32", "36", "40"],
+      "correctAnswerIndex": 2,
+      "explanation": "Nigeria currently has 36 states plus the Federal Capital Territory (FCT).",
+      "culturalContext": "The states were created gradually through several military administrations to improve governance and representation.",
+      "tags": ["geography", "states"]
+    },
+    {
+      "id": "q7",
+      "text": "Which Nigerian leader created the Federal Capital Territory (Abuja)?",
+      "options": [
+        "Yakubu Gowon",
+        "Murtala Mohammed",
+        "Olusegun Obasanjo",
+        "Shehu Shagari"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "General Murtala Mohammed announced the creation of the Federal Capital Territory in 1976.",
+      "culturalContext": "Abuja was chosen for its central location and neutrality among Nigeria's ethnic groups.",
+      "tags": ["politics", "cities"]
+    },
+    {
+      "id": "q8",
+      "text": "Which war occurred in Nigeria between 1967 and 1970?",
+      "options": [
+        "Niger Delta War",
+        "Biafran War",
+        "West African War",
+        "Independence War"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "The Nigerian Civil War, also known as the Biafran War, lasted from 1967 to 1970.",
+      "culturalContext": "The war had lasting social and political impacts on Nigeria's national unity.",
+      "tags": ["history", "civil-war"]
+    },
+    {
+      "id": "q9",
+      "text": "Who was Nigeria's first President?",
+      "options": [
+        "Yakubu Gowon",
+        "Nnamdi Azikiwe",
+        "Abubakar Tafawa Balewa",
+        "Obafemi Awolowo"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Dr. Nnamdi Azikiwe became Nigeria's first President in 1963 after the country became a republic.",
+      "culturalContext": "Azikiwe was a key nationalist leader and advocate for African independence.",
+      "tags": ["politics", "leaders"]
+    },
+    {
+      "id": "q10",
+      "text": "What is the nickname commonly used for Nigeria?",
+      "options": [
+        "The Giant of Africa",
+        "The Lion of Africa",
+        "The Heart of Africa",
+        "The Crown of Africa"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Nigeria is widely referred to as 'The Giant of Africa' due to its large population and economic influence.",
+      "culturalContext": "With over 200 million people, Nigeria has the largest population in Africa.",
+      "tags": ["culture", "identity"]
+    }
+  ]
+}
