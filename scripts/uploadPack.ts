@@ -30,7 +30,7 @@ async function uploadPack(filePath: string) {
     }
 
     const pack = validation.data;
-    const packId = pack.packId;
+    const packId = pack.id;
 
     console.log(`📦 Processing Pack: ${pack.title} (${packId})`);
 

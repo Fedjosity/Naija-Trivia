@@ -15,6 +15,7 @@ export type Question = z.infer<typeof QuestionSchema>;
 
 export const PackSchema = z.object({
   id: z.string(),
+  title: z.string(),
   version: z.string(), // e.g., "2024-01-25.01"
   questions: z.array(QuestionSchema),
   publishedAt: z.string(), // ISO date
