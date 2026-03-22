@@ -24,8 +24,14 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // Skins (Boutique): readable by all auth users, writeable ONLY by admin
+    // Skins (Boutique legacy): readable by all auth users, writeable ONLY by admin
     match /skins/{skinId} {
+      allow read: if request.auth != null;
+      allow write: if isAdmin();
+    }
+
+    // Boutique Items: readable by all auth users, writeable ONLY by admin
+    match /boutiqueItems/{itemId} {
       allow read: if request.auth != null;
       allow write: if isAdmin();
     }
