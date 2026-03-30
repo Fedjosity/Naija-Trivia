@@ -10,7 +10,8 @@ service cloud.firestore {
 
     // User profile: owner OR admin can access
     match /users/{uid} {
-      allow read, write: if request.auth != null && (request.auth.uid == uid || isAdmin());
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && (request.auth.uid == uid || isAdmin());
       
       match /completedPacks/{packId} {
         allow read: if request.auth != null && (request.auth.uid == uid || isAdmin());
@@ -24,7 +25,7 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // Skins (Boutique legacy): readable by all auth users, writeable ONLY by admin
+    // Skins (Boutique legacy)
     match /skins/{skinId} {
       allow read: if request.auth != null;
       allow write: if isAdmin();
@@ -36,8 +37,8 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
     
-    // Leaderboards: global read access, admin can moderate
-    match /leaderboards/{node=**} {
+    // Activities: audit trail, readable by all dashboard users, writeable by admin
+    match /activities/{id} {
       allow read: if request.auth != null;
       allow write: if isAdmin();
     }
