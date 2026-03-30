@@ -16,10 +16,9 @@
   },
   "auth": {
     "providers": {
-      "anonymous": true,
       "emailPassword": true,
       "googleSignIn": {
-        "oAuthBrandDisplayName": "Naija Trivia",
+        "oAuthBrandDisplayName": "Naija Trivia Admin",
         "supportEmail": "fedjostty@gmail.com"
       }
     }
