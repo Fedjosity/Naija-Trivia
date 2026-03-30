@@ -8,39 +8,39 @@ service cloud.firestore {
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
     }
 
-    // User profile: owner OR admin can access
+    // Global Access Rule for Admins
+    // If a user is an admin, they have read/write access to everything.
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+
+    // Collection-Specific Rules (for non-admins)
+    
+    // User profile: owner access
     match /users/{uid} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null && (request.auth.uid == uid || isAdmin());
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if request.auth != null && request.auth.uid == uid;
       
       match /completedPacks/{packId} {
-        allow read: if request.auth != null && (request.auth.uid == uid || isAdmin());
-        allow write: if false;
+        allow read: if request.auth != null && request.auth.uid == uid;
       }
     }
     
-    // Trivia packs: readable by all auth users, writeable ONLY by admin
+    // Public/Auth Reading: Allow all authenticated users to read core game data
     match /packs/{packId} {
       allow read: if request.auth != null;
-      allow write: if isAdmin();
     }
 
-    // Skins (Boutique legacy)
     match /skins/{skinId} {
       allow read: if request.auth != null;
-      allow write: if isAdmin();
     }
 
-    // Boutique Items: readable by all auth users, writeable ONLY by admin
     match /boutiqueItems/{itemId} {
       allow read: if request.auth != null;
-      allow write: if isAdmin();
     }
     
-    // Activities: audit trail, readable by all dashboard users, writeable by admin
     match /activities/{id} {
       allow read: if request.auth != null;
-      allow write: if isAdmin();
     }
   }
 }
