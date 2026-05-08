@@ -25,31 +25,31 @@ export default function HeroSection() {
       tl.fromTo(
         badgeRef.current,
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 }
+        { y: 0, opacity: 1, duration: 0.8 },
       )
         .fromTo(
           headlineRef.current,
           { y: 60, opacity: 0 },
           { y: 0, opacity: 1, duration: 1 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           subRef.current,
           { y: 40, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.5"
+          "-=0.5",
         )
         .fromTo(
           ctaRef.current,
           { y: 30, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.4"
+          "-=0.4",
         )
         .fromTo(
           phoneRef.current,
           { y: 80, opacity: 0, scale: 0.9 },
           { y: 0, opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" },
-          "-=0.8"
+          "-=0.8",
         );
 
       /* Parallax on scroll */
@@ -63,20 +63,8 @@ export default function HeroSection() {
           scrub: 1,
         },
       });
-
-      gsap.to(headlineRef.current, {
-        y: -30,
-        opacity: 0.3,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "50% top",
-          scrub: 1,
-        },
-      });
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
@@ -129,10 +117,7 @@ export default function HeroSection() {
             >
               Master Nigerian
               <br />
-              Culture.{" "}
-              <span className="text-gradient">
-                One Question
-              </span>
+              Culture. <span className="text-gradient">One Question</span>
               <br />
               at a Time.
             </h1>
