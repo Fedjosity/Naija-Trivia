@@ -66,7 +66,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={root} className="hero relative min-h-[100svh] pt-32 pb-20 overflow-hidden">
+    <section ref={root} className="hero relative min-h-svh pt-32 pb-20 overflow-hidden">
       <div className="hero-bg-layer absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(26,107,60,0.35),transparent_55%),radial-gradient(circle_at_75%_60%,rgba(201,168,76,0.12),transparent_50%)]" />
         <svg
