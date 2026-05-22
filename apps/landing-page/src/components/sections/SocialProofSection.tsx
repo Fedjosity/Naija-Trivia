@@ -52,14 +52,14 @@ export default function SocialProofSection() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="community" className="relative py-20 md:py-24 px-6 overflow-hidden scroll-mt-24">
+    <section ref={sectionRef} id="community" className="relative py-24 md:py-40 px-6 md:px-12 overflow-hidden scroll-mt-24">
       {/* Subtle Nigeria map background */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%2314B85C' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%23D4A017' stroke-width='0.3'/%3E%3C/svg%3E")`,
         backgroundSize: "200px 200px",
       }} />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <SectionHeading
           tag="Community"
           title="Join the Movement"
@@ -67,7 +67,7 @@ export default function SocialProofSection() {
         />
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           <AnimatedCounter end={100} suffix="K+" label="Active Players" />
           <AnimatedCounter end={1} suffix="M+" label="Questions Answered" />
           <AnimatedCounter end={50} suffix="K+" label="Daily Streaks" />

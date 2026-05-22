@@ -41,13 +41,13 @@ export default function Navbar() {
     <nav
       ref={navRef}
       className={clsx(
-        "fixed top-4 left-4 right-4 z-[100] rounded-2xl transition-all duration-500",
+        "fixed top-6 left-6 right-6 z-[100] rounded-2xl transition-all duration-500",
         scrolled
-          ? "glass-strong shadow-lg shadow-black/20"
-          : "bg-transparent"
+          ? "glass-strong shadow-xl shadow-black/40 py-1"
+          : "glass border-white/5 py-2"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-naija-green to-naija-green-light flex items-center justify-center shadow-lg shadow-naija-green/30 group-hover:shadow-naija-green/50 transition-shadow">

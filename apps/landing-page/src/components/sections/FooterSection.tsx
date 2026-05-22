@@ -42,8 +42,8 @@ const socials = [
 
 export default function FooterSection() {
   return (
-    <footer className="relative border-t border-white/5 pt-20 pb-8 px-6">
-      <div className="max-w-6xl mx-auto">
+    <footer className="relative border-t border-white/5 pt-24 pb-12 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">

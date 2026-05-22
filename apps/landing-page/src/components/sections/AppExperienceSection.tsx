@@ -135,11 +135,11 @@ export default function AppExperienceSection() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} className="relative h-screen flex items-center justify-center overflow-hidden px-6">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 md:px-12 py-24 md:py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-surface-dark via-naija-green-dark/5 to-surface-dark pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto w-full">
-        <div className="text-center mb-12">
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <div className="text-center mb-16 md:mb-24">
           <SectionHeading
             tag="Full Experience"
             title="See It in Action"
@@ -147,9 +147,9 @@ export default function AppExperienceSection() {
           />
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-32">
           {/* Phone */}
-          <div ref={phoneContainerRef} className="relative flex-shrink-0">
+          <div ref={phoneContainerRef} className="relative flex-shrink-0 scale-90 md:scale-100">
             <PhoneMockup glowColor="green">
               {appScreens.map((screen, i) => (
                 <div key={i} className={`app-screen absolute inset-0 ${i === 0 ? "opacity-100" : "opacity-0"}`}>
@@ -160,11 +160,11 @@ export default function AppExperienceSection() {
           </div>
 
           {/* Annotations */}
-          <div className="relative h-24 lg:h-auto lg:w-64">
+          <div className="relative min-h-[120px] lg:h-auto lg:w-80">
             {appScreens.map((screen, i) => (
-              <div key={i} className={`screen-annotation ${i === 0 ? "" : "absolute inset-0"} text-center lg:text-left`}>
+              <div key={i} className={`screen-annotation ${i === 0 ? "" : "absolute inset-0"} text-center lg:text-left flex flex-col justify-center`}>
                 <span className="text-xs font-semibold text-naija-green-light uppercase tracking-wider">{screen.label}</span>
-                <p className="mt-2 text-text-secondary text-sm leading-relaxed">{screen.annotation}</p>
+                <p className="mt-3 text-text-secondary text-base md:text-lg leading-relaxed">{screen.annotation}</p>
               </div>
             ))}
           </div>

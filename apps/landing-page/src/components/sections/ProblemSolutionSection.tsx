@@ -55,18 +55,18 @@ export default function ProblemSolutionSection() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="how-it-works" className="relative py-20 md:py-24 px-6 overflow-hidden scroll-mt-24">
+    <section ref={sectionRef} id="how-it-works" className="relative py-24 md:py-40 px-6 md:px-12 overflow-hidden scroll-mt-24">
       {/* Background accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-naija-green/5 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <SectionHeading
           tag="Why Naija Trivia?"
           title="The Problem We're Solving"
           subtitle="Nigerian culture is rich. But without engaging tools, that knowledge fades. We're changing that."
         />
 
-        <div className="mt-20 grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 items-start">
+        <div className="mt-24 grid md:grid-cols-[1fr_auto_1fr] gap-12 md:gap-16 items-start">
           {/* Problems */}
           <div className="space-y-6">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-red-400/80 mb-8">The Problem</h3>

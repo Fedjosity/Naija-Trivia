@@ -25,12 +25,12 @@ export default function DownloadCTASection() {
   }, { scope: sectionRef });
 
   return (
-    <section ref={sectionRef} id="download" className="relative py-20 md:py-24 px-6 overflow-hidden scroll-mt-24">
+    <section ref={sectionRef} id="download" className="relative py-24 md:py-40 px-6 md:px-12 overflow-hidden scroll-mt-24">
       {/* Background glow */}
       <GradientBlob color="green" size="xl" className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15" />
       <GradientBlob color="gold" size="lg" className="top-1/4 right-[10%] opacity-10" />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center cta-content">
+      <div className="relative z-10 max-w-5xl mx-auto text-center cta-content">
         {/* Decorative line */}
         <div className="w-20 h-1 mx-auto mb-8 bg-gradient-to-r from-naija-green to-naija-gold rounded-full" />
 
