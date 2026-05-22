@@ -50,7 +50,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-3 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-naija-green to-naija-green-light flex items-center justify-center shadow-lg shadow-naija-green/30 group-hover:shadow-naija-green/50 transition-all duration-500 group-hover:scale-110">
+          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-naija-green to-naija-green-light flex items-center justify-center shadow-lg shadow-naija-green/30 group-hover:shadow-naija-green/50 transition-all duration-500 group-hover:scale-110">
             <span className="text-white font-heading font-bold text-lg">
               NT
             </span>
@@ -78,7 +78,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <a
             href="#download"
-            className="px-8 py-3 rounded-xl bg-gradient-to-r from-naija-green-dark via-naija-green to-naija-green-light text-white text-xs font-black uppercase tracking-widest shadow-lg shadow-naija-green/20 hover:shadow-naija-green/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 cursor-pointer border border-white/10"
+            className="px-8 py-3 rounded-xl bg-linear-to-r from-naija-green-dark via-naija-green to-naija-green-light text-white text-xs font-black uppercase tracking-widest shadow-lg shadow-naija-green/20 hover:shadow-naija-green/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 cursor-pointer border border-white/10"
           >
             Get the App
           </a>
@@ -135,7 +135,7 @@ export default function Navbar() {
           <a
             href="#download"
             onClick={() => setMobileOpen(false)}
-            className="w-full text-center px-8 py-4 rounded-xl bg-gradient-to-r from-naija-green-dark to-naija-green-light text-white text-xs font-black uppercase tracking-widest shadow-lg shadow-naija-green/20 cursor-pointer border border-white/10"
+            className="w-full text-center px-8 py-4 rounded-xl bg-linear-to-r from-naija-green-dark to-naija-green-light text-white text-xs font-black uppercase tracking-widest shadow-lg shadow-naija-green/20 cursor-pointer border border-white/10"
           >
             Get the App
           </a>
