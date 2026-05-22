@@ -1,13 +1,17 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function FinalCTA() {
   const root = useRef<HTMLElement>(null);
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".cta-letter", {
-        y: 80, opacity: 0, rotateX: -60, duration: 0.9, ease: "power4.out", stagger: 0.04,
+        y: 80,
+        opacity: 0,
+        rotateX: -60,
+        duration: 0.9,
+        ease: "power4.out",
+        stagger: 0.04,
         scrollTrigger: { trigger: root.current, start: "top 70%" },
       });
     }, root);
@@ -26,12 +30,16 @@ export function FinalCTA() {
           {headline.split(" ").map((word, wi) => (
             <span key={wi} className="inline-block mr-3">
               {word.split("").map((ch, ci) => (
-                <span key={ci} className="cta-letter inline-block">{ch}</span>
+                <span key={ci} className="cta-letter inline-block">
+                  {ch}
+                </span>
               ))}
             </span>
           ))}
         </h2>
-        <p className="mt-8 text-lg text-foreground/70">Available on iOS &amp; Android. Free to download.</p>
+        <p className="mt-8 text-lg text-foreground/70">
+          Available on iOS & Android. Free to download.
+        </p>
 
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <a className="rounded-full border-2 border-gold px-7 py-3.5 font-semibold flex items-center gap-3 hover:bg-gold hover:text-gold-foreground transition-colors cursor-pointer">

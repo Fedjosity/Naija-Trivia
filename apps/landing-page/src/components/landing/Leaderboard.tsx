@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const rows = [
   { rank: 1, name: "Chiamaka O.", state: "🌴 Lagos", score: 12480 },
@@ -15,7 +14,11 @@ export function Leaderboard() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".lb-row", {
-        x: 80, opacity: 0, duration: 0.8, ease: "power3.out", stagger: 0.12,
+        x: 80,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.12,
         scrollTrigger: { trigger: root.current, start: "top 70%" },
       });
     }, root);
@@ -26,7 +29,9 @@ export function Leaderboard() {
     <section ref={root} id="leaderboard" className="relative py-32 px-6 lg:px-10">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">/ Leaderboards</span>
+          <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">
+            / Leaderboards
+          </span>
           <h2 className="font-display text-5xl lg:text-6xl font-bold mt-4 leading-tight">
             Compete. Represent. <span className="text-gold-shimmer">Dominate.</span>
           </h2>
@@ -51,13 +56,19 @@ export function Leaderboard() {
               <div
                 key={r.rank}
                 className={`lb-row flex items-center gap-4 px-4 py-4 rounded-xl ${
-                  r.rank === 1 ? "bg-gradient-to-r from-gold/20 to-gold/5 border border-gold/60 pulse-gold" : "bg-background/40"
+                  r.rank === 1
+                    ? "bg-gradient-to-r from-gold/20 to-gold/5 border border-gold/60 pulse-gold"
+                    : "bg-background/40"
                 }`}
               >
-                <span className={`font-mono-tk text-sm w-6 ${r.rank === 1 ? "text-gold" : "text-foreground/50"}`}>
+                <span
+                  className={`font-mono-tk text-sm w-6 ${r.rank === 1 ? "text-gold" : "text-foreground/50"}`}
+                >
                   {r.rank === 1 ? "🏆" : `0${r.rank}`}
                 </span>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${r.rank === 1 ? "bg-gold text-gold-foreground" : "bg-primary"}`}>
+                <div
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${r.rank === 1 ? "bg-gold text-gold-foreground" : "bg-primary"}`}
+                >
                   {r.name[0]}
                 </div>
                 <div className="flex-1 min-w-0">

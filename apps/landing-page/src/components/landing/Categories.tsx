@@ -18,7 +18,9 @@ export function Categories() {
   return (
     <section className="relative py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-12">
-        <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">/ Categories</span>
+        <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">
+          / Categories
+        </span>
         <h2 className="font-display text-5xl lg:text-6xl font-bold mt-4 leading-tight">
           Pick your <span className="text-gold-shimmer">battlefield</span>.
         </h2>
@@ -35,6 +37,8 @@ export function Categories() {
           scroller.current.scrollLeft = drag.left - (e.pageX - drag.x) * 1.5;
         }}
         className="flex gap-6 overflow-x-auto px-6 lg:px-10 pb-8 cursor-grab active:cursor-grabbing scrollbar-none scroll-smooth"
+        role="region"
+        aria-label="Trivia categories"
       >
         {cats.map((c) => (
           <div
@@ -44,9 +48,13 @@ export function Categories() {
             <div className="text-6xl">{c.e}</div>
             <div>
               <h3 className="font-display text-2xl font-bold">{c.t}</h3>
-              <p className="text-xs font-mono-tk text-gold mt-2 uppercase tracking-wider">{c.p} packs available</p>
+              <p className="text-xs font-mono-tk text-gold mt-2 uppercase tracking-wider">
+                {c.p} packs available
+              </p>
             </div>
-            <span className="absolute top-5 right-5 text-foreground/30 group-hover:text-gold transition-colors">→</span>
+            <span className="absolute top-5 right-5 text-foreground/30 group-hover:text-gold transition-colors">
+              →
+            </span>
           </div>
         ))}
       </div>
