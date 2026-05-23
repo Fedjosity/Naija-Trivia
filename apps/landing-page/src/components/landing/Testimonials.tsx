@@ -1,10 +1,26 @@
 import { useEffect, useState } from "react";
 
 const quotes = [
-  { name: "Adaeze N.", state: "Enugu", quote: "I thought I knew Naija. This humbled me in 3 questions. Now I'm hooked." },
-  { name: "Seyi B.", state: "Lagos", quote: "The Nollywood pack is criminal. Took me back to my childhood NTA days." },
-  { name: "Musa I.", state: "Kaduna", quote: "Finally a trivia app that actually understands the North. The history is on point." },
-  { name: "Tobi R.", state: "Ogun", quote: "My family WhatsApp group is now a battleground. We compete every evening." },
+  {
+    name: "Adaeze N.",
+    state: "Enugu",
+    quote: "I thought I knew Naija. This humbled me in 3 questions. Now I'm hooked.",
+  },
+  {
+    name: "Seyi B.",
+    state: "Lagos",
+    quote: "The Nollywood pack is criminal. Took me back to my childhood NTA days.",
+  },
+  {
+    name: "Musa I.",
+    state: "Kaduna",
+    quote: "Finally a trivia app that actually understands the North. The history is on point.",
+  },
+  {
+    name: "Tobi R.",
+    state: "Ogun",
+    quote: "My family WhatsApp group is now a battleground. We compete every evening.",
+  },
 ];
 
 export function Testimonials() {
@@ -17,7 +33,9 @@ export function Testimonials() {
   return (
     <section className="relative py-32 px-6 lg:px-10">
       <div className="max-w-5xl mx-auto text-center">
-        <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">/ Word on the Streets</span>
+        <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">
+          / Word on the Streets
+        </span>
         <h2 className="font-display text-5xl lg:text-6xl font-bold mt-4">
           Nigerians Are <span className="text-gold-shimmer">Already Talking</span>
         </h2>
@@ -28,7 +46,10 @@ export function Testimonials() {
             style={{ transform: `translateX(-${i * 100}%)` }}
           >
             {quotes.map((q) => (
-              <div key={q.name} className="w-full shrink-0 px-6 flex flex-col items-center justify-center">
+              <div
+                key={q.name}
+                className="w-full shrink-0 px-6 flex flex-col items-center justify-center"
+              >
                 <div className="text-6xl text-gold/40 font-display leading-none mb-4">"</div>
                 <blockquote className="font-display text-2xl lg:text-3xl leading-snug max-w-3xl">
                   {q.quote}
