@@ -23,7 +23,7 @@ export function FinalCTA() {
   return (
     <section ref={root} id="cta" className="relative py-40 px-6 lg:px-10 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.18] flag-gradient" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background/95" />
+      <div className="absolute inset-0 bg-linear-to-b from-background/80 via-background/40 to-background/95" />
 
       <div className="relative max-w-5xl mx-auto text-center">
         <h2 className="font-display font-bold text-5xl sm:text-6xl lg:text-8xl leading-[0.95]">

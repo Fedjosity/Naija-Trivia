@@ -4,9 +4,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PhoneMockup } from "./PhoneMockup";
 
 const steps = [
-  { n: "01", title: "Choose your category", desc: "Pick from Music, Nollywood, History, Sports, Languages and more. Mix and match for custom rounds.", state: "question" as const },
-  { n: "02", title: "Answer & compete", desc: "Beat the clock. Build streaks. Every correct answer climbs your score and unlocks bonus points.", state: "score" as const },
-  { n: "03", title: "Climb the leaderboard", desc: "Daily, weekly, all-time. Compete in your state, your region, and across all 36.", state: "leaderboard" as const },
+  {
+    n: "01",
+    title: "Choose your category",
+    desc: "Pick from Music, Nollywood, History, Sports, Languages and more. Mix and match for custom rounds.",
+    state: "question" as const,
+  },
+  {
+    n: "02",
+    title: "Answer & compete",
+    desc: "Beat the clock. Build streaks. Every correct answer climbs your score and unlocks bonus points.",
+    state: "score" as const,
+  },
+  {
+    n: "03",
+    title: "Climb the leaderboard",
+    desc: "Daily, weekly, all-time. Compete in your state, your region, and across all 36.",
+    state: "leaderboard" as const,
+  },
 ];
 
 export function HowItWorks() {
@@ -24,7 +39,13 @@ export function HowItWorks() {
       gsap.set(phones.slice(1), { opacity: 0, y: 40 });
 
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: root.current, start: "top top", end: "+=200%", pin: true, scrub: 1 },
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top top",
+          end: "+=200%",
+          pin: true,
+          scrub: 1,
+        },
       });
 
       for (let i = 1; i < stepsEl.length; i++) {
@@ -38,10 +59,16 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section ref={root} id="how" className="how-it-works relative min-h-screen py-32 px-6 lg:px-10 overflow-hidden">
+    <section
+      ref={root}
+      id="how"
+      className="how-it-works relative min-h-screen py-32 px-6 lg:px-10 overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 lg:mb-20">
-          <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">/ How It Works</span>
+          <span className="font-mono-tk text-xs uppercase tracking-[0.25em] text-gold">
+            / How It Works
+          </span>
           <h2 className="font-display text-5xl lg:text-6xl font-bold mt-4 leading-tight">
             Three taps to <span className="text-gold-shimmer">glory</span>.
           </h2>
