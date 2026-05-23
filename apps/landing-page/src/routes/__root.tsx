@@ -73,9 +73,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Daily Naija Trivia — How Well Do You Know Nigeria?" },
-      { name: "description", content: "The ultimate trivia platform for Nigerian culture, history, music, and more. Play daily. Compete nationally. Represent your roots." },
+      {
+        name: "description",
+        content:
+          "The ultimate trivia platform for Nigerian culture, history, music, and more. Play daily. Compete nationally. Represent your roots.",
+      },
       { property: "og:title", content: "Daily Naija Trivia" },
-      { property: "og:description", content: "Play daily Nigerian trivia. Compete nationally. Represent your roots." },
+      {
+        property: "og:description",
+        content: "Play daily Nigerian trivia. Compete nationally. Represent your roots.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -83,7 +90,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
