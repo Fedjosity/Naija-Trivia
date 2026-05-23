@@ -16,7 +16,7 @@ export function Navbar() {
     gsap.fromTo(
       ref.current,
       { y: -40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.1 }
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.1 },
     );
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
