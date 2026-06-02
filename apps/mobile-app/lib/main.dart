@@ -1,307 +1,121 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(const NaijaTriviaApp());
+  runApp(const MyApp());
 }
 
-class NaijaTriviaApp extends StatelessWidget {
-  const NaijaTriviaApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Daily Naija Trivia',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF0F1412),
-        primaryColor: const Color(0xFF59DE9B),
-        textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme.apply(
-              bodyColor: const Color(0xFFDFE4E0),
-              displayColor: const Color(0xFFDFE4E0),
-            )),
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a purple toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const WelcomeScreen(),
-      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
     return Scaffold(
-      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundColor: const Color(0xFF181D1A), // surface-container-low
-            child: IconButton(
-              icon: const Icon(Icons.menu, color: Color(0xFF59DE9B)),
-              onPressed: () {},
-            ),
-          ),
-        ),
-        title: Text(
-          'Daily Naija Trivia',
-          style: GoogleFonts.plusJakartaSans(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            letterSpacing: -0.5,
-          ),
-        ),
-        centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: const Color(0xFF181D1A),
-              child: IconButton(
-                icon: const Icon(Icons.account_circle, color: Color(0xFFBFC9C4)),
-                onPressed: () {},
-              ),
-            ),
-          ),
-        ],
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
       ),
-      body: Stack(
-        children: [
-          // Subtle decorative elements
-          Positioned(
-            bottom: -100,
-            left: -100,
-            child: Container(
-              width: 250,
-              height: 250,
-              decoration: BoxDecoration(
-                color: const Color(0xFF59DE9B).withValues(alpha: 0.05),
-                shape: BoxShape.circle,
-              ),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          //
+          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+          // action in the IDE, or press "p" in the console), to see the
+          // wireframe for each widget.
+          mainAxisAlignment: .center,
+          children: [
+            const Text('You have pushed the button this many times:'),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.4,
-            right: -120,
-            child: Container(
-              width: 300,
-              height: 300,
-              decoration: BoxDecoration(
-                color: const Color(0xFFE9C349).withValues(alpha: 0.05),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-
-          SafeArea(
-            child: Column(
-              children: [
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
-                      child: Column(
-                        children: [
-                          // Hero Image Container
-                          Container(
-                            height: MediaQuery.of(context).size.height * 0.45,
-                            width: double.infinity,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(160),
-                                topRight: Radius.circular(160),
-                                bottomLeft: Radius.circular(12),
-                                bottomRight: Radius.circular(12),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black45,
-                                  blurRadius: 30,
-                                  offset: Offset(0, 15),
-                                )
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(160),
-                                    topRight: Radius.circular(160),
-                                    bottomLeft: Radius.circular(12),
-                                    bottomRight: Radius.circular(12),
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/hero.jpg',
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                  ),
-                                ),
-                                // Gradient Overlay
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(160),
-                                      topRight: Radius.circular(160),
-                                      bottomLeft: Radius.circular(12),
-                                      bottomRight: Radius.circular(12),
-                                    ),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter,
-                                      colors: [
-                                        const Color(0xFF0F1412).withValues(alpha: 0.9),
-                                        Colors.transparent,
-                                      ],
-                                      stops: const [0.0, 0.5],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 48),
-
-                          // Content
-                          Text(
-                            'THE JOURNEY BEGINS',
-                            style: GoogleFonts.inter(
-                              color: const Color(0xFF59DE9B),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              letterSpacing: 2.0,
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-
-                          // Gold Text Gradient Headline
-                          ShaderMask(
-                            shaderCallback: (bounds) => const LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [Color(0xFFFFE088), Color(0xFFE9C349)],
-                            ).createShader(bounds),
-                            child: Text(
-                              'Welcome to\nthe Culture',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.plusJakartaSans(
-                                color: Colors.white, // Needs to be white for ShaderMask
-                                fontWeight: FontWeight.w800,
-                                fontSize: 42,
-                                height: 1.1,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-
-                          Text(
-                            "Dive into the heart of Africa's giant. Experience history, art, and wisdom through the lens of Nigeria's most elite trivia collection.",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.inter(
-                              color: const Color(0xFFBFC9C4),
-                              fontSize: 16,
-                              height: 1.5,
-                            ),
-                          ),
-                          const SizedBox(height: 48),
-
-                          // Glassmorphic CTA Button
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF353A38).withValues(alpha: 0.4), // glass effect
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                color: const Color(0xFF3F4945).withValues(alpha: 0.2),
-                              ),
-                            ),
-                            padding: const EdgeInsets.only(left: 32, right: 8, top: 8, bottom: 8),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                  'CONTINUE TO ARENA',
-                                  style: GoogleFonts.inter(
-                                    color: const Color(0xFFE9C349), // secondary-fixed-dim
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 12,
-                                    letterSpacing: 1.0,
-                                  ),
-                                ),
-                                const SizedBox(width: 32),
-                                Container(
-                                  width: 48,
-                                  height: 48,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    gradient: const LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      colors: [Color(0xFF59DE9B), Color(0xFF004E2F)],
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: const Color(0xFF59DE9B).withValues(alpha: 0.3),
-                                        blurRadius: 20,
-                                      ),
-                                    ],
-                                  ),
-                                  child: const Icon(
-                                    Icons.arrow_forward,
-                                    color: Color(0xFF003921),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-
-                // Progress Indicator
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 32.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 48,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF59DE9B),
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Container(
-                        width: 8,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF313633),
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Container(
-                        width: 8,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF313633),
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
