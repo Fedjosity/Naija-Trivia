@@ -516,3 +516,17 @@ The product should feel:
 Every engineering and design decision should support that vision.
 
 ---
+
+# 16. Current Progress
+
+- **Frontend Foundation:** Initialized basic Clean Architecture directories (`lib/core`, `lib/features`).
+- **Routing:** Configured `GoRouter` in `lib/core/router/app_router.dart`.
+- **Theming:** Configured `AppTheme` utilizing exact Stitch Tailwind colors and `google_fonts` (Plus Jakarta Sans, Inter).
+- **Screens Implemented (UI Match):**
+  - Welcome to the Culture (`/welcome`)
+  - Join the Elite (`/join`)
+  - Email Sign Up (`/email-signup`)
+  - Pick Your Path (`/pick-path`)
+- **Assets:** Downloaded and linked persistent hero and background images locally.
+
+---
