@@ -2,7 +2,7 @@
 
 # 🇳🇬 Daily Naija Trivia
 
-AI-assisted Nigerian trivia platform built with Flutter.
+AI-assisted Nigerian trivia platform built with React Native.
 
 ---
 
@@ -46,29 +46,28 @@ Core product principles:
 
 ## Frontend
 
-- Flutter
-- Dart
+- React Native (Expo)
+- TypeScript
 
 ## State Management
 
-- Riverpod
+- Zustand
 
 ## Navigation
 
-- GoRouter
+- Expo Router
 
 ## Networking
 
-- Dio
+- Axios or Fetch API
 
-## Serialization / Models
+## Styling
 
-- Freezed
-- json_serializable
+- NativeWind (TailwindCSS) / StyleSheet
 
 ## Local Storage
 
-- Hive / Isar / SharedPreferences (depending on use case)
+- AsyncStorage / MMKV / SQLite (depending on use case)
 
 ## Backend
 
@@ -80,9 +79,8 @@ Core product principles:
 
 ## Animations
 
-- Flutter Animate
-- Rive
-- Lottie
+- React Native Reanimated
+- Lottie React Native
 
 ## Architecture
 
@@ -129,14 +127,14 @@ Avoid:
 
 ## 3. Single Responsibility Principle
 
-Every class should have one responsibility.
+Every module should have one responsibility.
 
 Examples:
 
-- UI widgets render UI
+- UI components render UI
 - repositories handle data
 - services handle business operations
-- providers manage state
+- stores manage state
 
 ---
 
@@ -145,14 +143,14 @@ Examples:
 The app is organized by feature, not by file type globally.
 
 Correct:
-lib/features/auth/
-lib/features/trivia/
-lib/features/profile/
+src/features/auth/
+src/features/trivia/
+src/features/profile/
 
 Avoid:
-lib/screens/
-lib/widgets/
-lib/controllers/
+src/screens/
+src/components/
+src/controllers/
 
 at root scale.
 
@@ -172,12 +170,12 @@ Caching and local persistence are important.
 
 ## 6. Performance Matters
 
-Avoid unnecessary rebuilds.
+Avoid unnecessary re-renders.
 
 Optimize:
 
-- Riverpod providers
-- widget trees
+- Zustand selectors
+- React hooks (`useMemo`, `useCallback`)
 - image loading
 - animations
 
@@ -193,7 +191,7 @@ Target:
 
 # 4. Architectural Guidelines
 
-The project uses Clean Architecture.
+The project uses Clean Architecture principles adapted for React.
 
 Structure:
 
@@ -206,7 +204,7 @@ Dependencies only flow downward.
 # 5. Folder Structure
 
 ```txt
-lib/
+src/
 │
 ├── core/
 │   ├── constants/
@@ -215,12 +213,12 @@ lib/
 │   ├── services/
 │   ├── network/
 │   ├── errors/
-│   └── widgets/
+│   └── components/
 │
 ├── features/
 │   ├── auth/
 │   │   ├── data/
-│   │   │   ├── datasource/
+│   │   │   ├── datasources/
 │   │   │   ├── models/
 │   │   │   └── repositories/
 │   │   │
@@ -230,9 +228,8 @@ lib/
 │   │   │   └── usecases/
 │   │   │
 │   │   └── presentation/
-│   │       ├── pages/
-│   │       ├── widgets/
-│   │       └── providers/
+│   │       ├── components/
+│   │       └── stores/
 │   │
 │   ├── trivia/
 │   ├── leaderboard/
@@ -241,31 +238,28 @@ lib/
 │   └── settings/
 │
 ├── shared/
-│   ├── components/
+│   ├── hooks/
 │   ├── extensions/
 │   └── helpers/
 │
-└── main.dart
+└── app/
+    ├── (auth)/
+    ├── (tabs)/
+    └── _layout.tsx
 ```
 
 ---
 
 # 6. State Management Rules
 
-Riverpod is the standard state management solution.
+Zustand is the standard state management solution.
 
 Rules:
 
-- Do not use setState for scalable business logic.
-- Keep providers focused.
-- Avoid giant global providers.
+- Keep stores focused and modular.
+- Avoid giant global stores.
 - Separate UI state from business state.
-
-Preferred:
-
-- AsyncNotifier
-- StateNotifier
-- Provider families
+- Use selectors to prevent unnecessary re-renders.
 
 ---
 
@@ -366,16 +360,18 @@ Target:
 
 ## Files
 
-snake_case.dart
+kebab-case.ts or camelCase.ts (follow project consistency)
+For components: PascalCase.tsx
 
 Examples:
 
-- trivia_card.dart
-- leaderboard_page.dart
+- TriviaCard.tsx
+- auth-repository.ts
+- useUserStore.ts
 
 ---
 
-## Classes
+## Classes / Components
 
 PascalCase
 
@@ -407,7 +403,7 @@ Examples:
 
 - feat: add trivia streak system
 - fix: prevent duplicate leaderboard fetch
-- refactor: simplify auth provider
+- refactor: simplify auth store
 
 Avoid:
 
@@ -466,20 +462,20 @@ When a bug is fixed:
 
 ### Issue
 
-Duplicate API requests caused by unnecessary provider rebuilds.
+Duplicate API requests caused by unnecessary component re-renders.
 
 ### Root Cause
 
-Provider dependencies were watching entire objects instead of specific values.
+Components were subscribing to the entire Zustand store instead of specific slices/selectors.
 
 ### Fix
 
-Refactored provider dependencies using selective watching.
+Refactored store subscriptions using selectors.
 
 ### Prevention
 
-Always use:
-ref.watch(provider.select(...))
+Always use selectors:
+const value = useStore((state) => state.specificValue)
 
 when only specific values are needed.
 
@@ -491,9 +487,10 @@ Before merging code:
 
 Ensure:
 
-- flutter analyze passes
+- `npm run lint` passes
+- `npm run typecheck` passes
 - no unused imports
-- no debug prints
+- no console.logs
 - no hardcoded magic values
 - no duplicated business logic
 
@@ -519,14 +516,6 @@ Every engineering and design decision should support that vision.
 
 # 16. Current Progress
 
-- **Frontend Foundation:** Initialized basic Clean Architecture directories (`lib/core`, `lib/features`).
-- **Routing:** Configured `GoRouter` in `lib/core/router/app_router.dart`.
-- **Theming:** Configured `AppTheme` utilizing exact Stitch Tailwind colors and `google_fonts` (Plus Jakarta Sans, Inter).
-- **Screens Implemented (UI Match):**
-  - Welcome to the Culture (`/welcome`)
-  - Join the Elite (`/join`)
-  - Email Sign Up (`/email-signup`)
-  - Pick Your Path (`/pick-path`)
-- **Assets:** Downloaded and linked persistent hero and background images locally.
-
+- **Stack Transition:** Migrated stack from Flutter to React Native (Expo) + Zustand.
+- **Frontend Foundation:** Setting up React Native directory structure.
 ---
