@@ -53,7 +53,7 @@ export default function WelcomeScreen() {
 
           {/* CTA Button */}
           <Pressable
-            onPress={() => router.push('/join-elite')}
+            onPress={() => router.push('/(auth)/join-elite')}
             className="group flex-row items-center justify-between pl-8 pr-2 py-2 rounded-full border border-outline-variant/20 bg-[#353a38]/40"
           >
             <Text className="text-secondary-fixed-dim font-semibold tracking-wide uppercase text-sm mr-8">

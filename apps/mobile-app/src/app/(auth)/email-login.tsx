@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Pressable, TextInput, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -7,21 +7,23 @@ import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated';
 import { BlurView } from 'expo-blur';
 import GlassPanel from '../../shared/components/GlassPanel';
 import PrimaryButton from '../../shared/components/PrimaryButton';
+import TrustBadge from '../../shared/components/TrustBadge';
 import AuthInput from '../../features/auth/presentation/components/AuthInput';
 
-export default function EmailSignupScreen() {
+export default function EmailLoginScreen() {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <SafeAreaView className="flex-1 bg-surface">
-      <KeyboardAvoidingView 
+      <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         className="flex-1"
       >
         <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }} showsVerticalScrollIndicator={false}>
-          {/* Top Decorative Lights */}
-          <View className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
-          <View className="absolute bottom-[-10%] left-[-10%] w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
+          {/* Radial Glows */}
+          <View className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-primary/15 rounded-full blur-3xl" />
+          <View className="absolute bottom-[-10%] right-[-10%] w-48 h-48 bg-secondary/10 rounded-full blur-3xl" />
 
           {/* Header */}
           <Animated.View entering={FadeInDown.delay(100)} className="items-center py-12 z-10">
@@ -35,33 +37,26 @@ export default function EmailSignupScreen() {
             </View>
           </Animated.View>
 
-          {/* Main Card */}
+          {/* Glass Panel */}
           <View className="px-6 pb-20 z-10 flex-1 justify-center">
             <Animated.View entering={FadeInUp.delay(300)} className="w-full max-w-md self-center">
               <GlassPanel accentGlow="primary" intensity={25}>
                 <View className="mb-10 items-center">
                   <Text className="font-headline text-3xl font-bold mb-3 text-on-surface text-center">
-                    Join the Archive
+                    Welcome Back, Champion
                   </Text>
                   <Text className="text-on-surface-variant font-body leading-relaxed text-center">
-                    Secure your place in the royal arena. Prestige awaits.
+                    Your throne awaits. Log in to continue your legacy.
                   </Text>
                 </View>
 
                 {/* Form */}
-                <View className="gap-6">
-                  {/* Full Name */}
-                  <AuthInput 
-                    label="Full Name" 
-                    icon="person" 
-                    placeholder="Chidi Adebayo" 
-                  />
-
+                <View className="gap-4">
                   {/* Email */}
                   <AuthInput 
                     label="Email Address" 
                     icon="mail" 
-                    placeholder="chidi@archive.ng" 
+                    placeholder="Email Address" 
                     keyboardType="email-address" 
                     autoCapitalize="none" 
                   />
@@ -70,51 +65,40 @@ export default function EmailSignupScreen() {
                   <AuthInput 
                     label="Password" 
                     icon="lock" 
-                    placeholder="••••••••••••" 
+                    placeholder="Password" 
                     isPassword={true} 
                   />
 
-                  {/* Submit Button */}
-                  <View className="pt-4">
-                    <PrimaryButton 
-                      title="Create Account" 
-                      icon="arrow-forward" 
-                      variant="secondary" 
-                      onPress={() => router.push('/(auth)/verify-otp')} 
-                    />
-                  </View>
+                  {/* Forgot Password Link */}
+                  <Pressable onPress={() => router.push('/(auth)/forgot-password')} className="self-end">
+                    <Text className="text-secondary font-label text-sm">Forgot Password?</Text>
+                  </Pressable>
+
+                  {/* Login Button */}
+                  <PrimaryButton 
+                    title="Log In" 
+                    onPress={() => router.push('/(onboarding)/pick-path')} 
+                    variant="secondary" 
+                    className="mt-2" 
+                  />
                 </View>
 
-                {/* Footer Links */}
-                <View className="mt-10 items-center gap-4">
-                  <View className="flex-row items-center gap-2">
-                    <Text className="text-on-surface-variant text-sm">Already a member?</Text>
-                    <Pressable onPress={() => router.push('/(auth)/email-login')}>
-                      <Text className="text-secondary font-bold text-sm">Back to Login</Text>
+                {/* Sign Up Link */}
+                <View className="mt-8 items-center">
+                  <View className="flex-row items-center gap-1">
+                    <Text className="text-on-surface-variant text-base">Don't have an account?</Text>
+                    <Pressable onPress={() => router.push('/(auth)/email-signup')}>
+                      <Text className="text-primary font-semibold text-base ml-1">Sign Up</Text>
                     </Pressable>
-                  </View>
-
-                  <View className="flex-row items-center gap-2 mt-2">
-                    <MaterialIcons name="verified-user" size={14} color="rgba(191, 201, 196, 0.3)" />
-                    <Text className="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/30">
-                      Secure Encrypted Authentication
-                    </Text>
                   </View>
                 </View>
               </GlassPanel>
             </Animated.View>
           </View>
 
-          {/* Footer Icons */}
-          <Animated.View entering={FadeInDown.delay(500)} className="absolute bottom-8 left-0 right-0 flex-row justify-center gap-8 z-0">
-            <View className="flex-row items-center gap-2">
-              <MaterialIcons name="history-edu" size={16} color="rgba(191, 201, 196, 0.4)" />
-              <Text className="text-on-surface-variant/40 text-xs">Heritage Verified</Text>
-            </View>
-            <View className="flex-row items-center gap-2">
-              <MaterialIcons name="policy" size={16} color="rgba(191, 201, 196, 0.4)" />
-              <Text className="text-on-surface-variant/40 text-xs">Privacy Protocol</Text>
-            </View>
+          {/* Footer Trust Badge */}
+          <Animated.View entering={FadeInDown.delay(500)} className="absolute bottom-8 left-0 right-0 items-center z-10">
+            <TrustBadge text="Secure Encrypted Authentication" />
           </Animated.View>
         </ScrollView>
       </KeyboardAvoidingView>

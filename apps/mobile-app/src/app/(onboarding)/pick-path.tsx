@@ -113,7 +113,10 @@ export default function PickPathScreen() {
             </Text>
           </View>
 
-          <Pressable className="w-full py-5 rounded-xl bg-primary flex-row items-center justify-center gap-3 active:scale-95 transition-transform shadow-lg shadow-primary/30">
+          <Pressable 
+            onPress={() => router.push('/(onboarding)/profile-setup')}
+            className="w-full py-5 rounded-xl bg-primary flex-row items-center justify-center gap-3 active:scale-95 transition-transform shadow-lg shadow-primary/30"
+          >
             <Text className="font-headline font-bold text-on-primary-fixed-variant text-lg">
               Continue Journey
             </Text>

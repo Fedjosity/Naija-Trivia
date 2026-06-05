@@ -231,19 +231,25 @@ src/
 │   │       ├── components/
 │   │       └── stores/
 │   │
+│   ├── onboarding/
+│   │   ├── presentation/
+│   │   │   ├── components/
+│   │   │   └── stores/
+│   │
 │   ├── trivia/
 │   ├── leaderboard/
 │   ├── profile/
-│   ├── onboarding/
 │   └── settings/
 │
 ├── shared/
+│   ├── components/
 │   ├── hooks/
 │   ├── extensions/
 │   └── helpers/
 │
 └── app/
     ├── (auth)/
+    ├── (onboarding)/
     ├── (tabs)/
     └── _layout.tsx
 ```
@@ -428,7 +434,7 @@ Always:
 
 # 12. Antigravity Agent Memory Rules
 
-Antigravity MUST update this AGENT.md whenever:
+Antigravity MUST update this AGENTS.md AUTOMATICALLY and PROACTIVELY whenever:
 
 - architecture changes
 - major bugs are fixed
@@ -437,6 +443,9 @@ Antigravity MUST update this AGENT.md whenever:
 - new tooling is introduced
 - folder structure changes
 - technical decisions are finalized
+- we do something big or a major change happens
+
+**AUTOMATIC UPDATE RULE**: Do NOT wait for the user to prompt you. Whenever any of the above conditions are met during a session, you MUST use your file editing tools to update this `AGENTS.md` file before concluding your work.
 
 ---
 

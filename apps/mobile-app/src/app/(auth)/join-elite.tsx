@@ -4,7 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
-import { BlurView } from 'expo-blur';
+import GlassPanel from '../../shared/components/GlassPanel';
+import SocialLoginButton from '../../features/auth/presentation/components/SocialLoginButton';
 
 export default function JoinEliteScreen() {
   const router = useRouter();
@@ -33,7 +34,7 @@ export default function JoinEliteScreen() {
 
         {/* Main Onboarding Modal */}
         <Animated.View entering={FadeInDown.delay(300).springify()} className="w-full max-w-lg self-center">
-          <BlurView intensity={30} tint="dark" className="p-8 md:p-10 rounded-3xl border border-white/10 overflow-hidden bg-[#353a38]/40 shadow-2xl">
+          <GlassPanel intensity={30}>
             <View className="items-center mb-10">
               <Text className="font-headline text-4xl font-extrabold text-on-surface mb-4 text-center">
                 Claim Your Throne
@@ -45,22 +46,12 @@ export default function JoinEliteScreen() {
 
             {/* Social Login Buttons */}
             <View className="gap-4">
-              <Pressable className="w-full flex-row items-center justify-center gap-3 bg-white py-4 px-6 rounded-xl shadow-sm active:scale-95 transition-all">
-                <MaterialIcons name="apple" size={24} color="black" />
-                <Text className="text-black font-semibold text-lg">Sign in with Apple</Text>
-              </Pressable>
-
-              <Pressable className="w-full flex-row items-center justify-center gap-3 bg-transparent border border-secondary/50 py-4 px-6 rounded-xl active:scale-95 transition-all">
-                <Text className="text-on-surface font-semibold text-lg">Sign in with Google</Text>
-              </Pressable>
-
-              <Pressable 
-                onPress={() => router.push('/email-signup')}
-                className="w-full flex-row items-center justify-center gap-3 bg-surface-container-high py-4 px-6 rounded-xl active:scale-95 transition-all"
-              >
-                <MaterialIcons name="alternate-email" size={20} color="#bfc9c4" />
-                <Text className="text-on-surface-variant font-medium text-base">Sign up with email</Text>
-              </Pressable>
+              <SocialLoginButton provider="apple" />
+              <SocialLoginButton provider="google" />
+              <SocialLoginButton 
+                provider="email" 
+                onPress={() => router.push('/(auth)/email-signup')}
+              />
             </View>
 
             {/* Footer Links */}
@@ -70,13 +61,13 @@ export default function JoinEliteScreen() {
                 <Text className="px-4 bg-[#1f2422] text-on-surface-variant text-sm font-label">OR</Text>
               </View>
 
-              <Pressable onPress={() => router.push('/email-signup')}>
+              <Pressable onPress={() => router.push('/(onboarding)/profile-setup')}>
                 <Text className="text-secondary font-medium underline">
                   Continue as Guest
                 </Text>
               </Pressable>
             </View>
-          </BlurView>
+          </GlassPanel>
 
           {/* Trust Indicator */}
           <View className="mt-8 flex-row items-center justify-center gap-2">
