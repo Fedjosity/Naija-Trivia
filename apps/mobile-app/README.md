@@ -16,15 +16,22 @@ npm install
 ### 2. Launch Android Studio Emulator
 Since we are testing primarily on Android, open Android Studio, go to the **Virtual Device Manager**, and start your Android Emulator.
 
-### 3. Start the Development Server
-Run the Expo packager:
+### 3. Build the Native Development App
+Instead of using Expo Go, we use **Development Builds** to allow full access to custom native modules (like payment gateways). 
+First, make sure your Android Emulator is running. Then build the app natively:
+
+```bash
+npx expo run:android
+```
+*(This command will compile the Android app and install it on your emulator. It might take a few minutes the first time.)*
+
+### 4. Start the Development Server
+Once the native app is installed on the emulator, you can start the fast-refresh packager for normal development:
 
 ```bash
 npm start
 ```
-
-### 4. Run the App
-Once the packager is running, press **`a`** in the terminal. Expo will automatically install the Expo Go app on your emulator and launch Daily Naija Trivia!
+*(If prompted in the terminal, press `a` to open the app. It will now connect to your custom development build instead of Expo Go.)*
 
 ## Project Overview & Guidelines
 
