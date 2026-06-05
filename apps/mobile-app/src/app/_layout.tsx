@@ -27,10 +27,9 @@ export default function RootLayout() {
 
   return (
     <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#0f1412' } }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="join-elite" />
-      <Stack.Screen name="email-signup" />
-      <Stack.Screen name="pick-path" />
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+      <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
     </Stack>
   );
 }

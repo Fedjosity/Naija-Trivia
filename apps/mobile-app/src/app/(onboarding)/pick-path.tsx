@@ -14,11 +14,11 @@ type Category = {
 };
 
 const CATEGORIES: Category[] = [
-  { id: 'nollywood', label: 'Entertainment', title: 'Nollywood', image: require('../assets/images/categories/path-nollywood.jpg'), span: 2 },
-  { id: 'history', label: 'Legacy', title: 'History', image: require('../assets/images/categories/path-history.jpg'), span: 2 },
-  { id: 'music', label: 'Rhythm', title: 'Music', image: require('../assets/images/categories/path-music.jpg'), span: 1 },
-  { id: 'cuisine', label: 'Flavors', title: 'Cuisine', image: require('../assets/images/categories/path-cuisine.jpg'), span: 1 },
-  { id: 'innovation', label: 'Modernity', title: 'Innovation', image: require('../assets/images/categories/path-innovation.jpg'), span: 2 },
+  { id: 'nollywood', label: 'Entertainment', title: 'Nollywood', image: require('../../assets/images/categories/path-nollywood.jpg'), span: 2 },
+  { id: 'history', label: 'Legacy', title: 'History', image: require('../../assets/images/categories/path-history.jpg'), span: 2 },
+  { id: 'music', label: 'Rhythm', title: 'Music', image: require('../../assets/images/categories/path-music.jpg'), span: 1 },
+  { id: 'cuisine', label: 'Flavors', title: 'Cuisine', image: require('../../assets/images/categories/path-cuisine.jpg'), span: 1 },
+  { id: 'innovation', label: 'Modernity', title: 'Innovation', image: require('../../assets/images/categories/path-innovation.jpg'), span: 2 },
 ];
 
 export default function PickPathScreen() {
@@ -104,9 +104,9 @@ export default function PickPathScreen() {
         <Animated.View entering={FadeIn.delay(600)} className="pt-8 border-t border-outline-variant/20 flex-col gap-6">
           <View className="flex-row items-center gap-4">
             <View className="flex-row -space-x-3">
-              <Image source={require('../assets/images/avatars/avatar-1.jpg')} className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high" />
-              <Image source={require('../assets/images/avatars/avatar-2.jpg')} className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high" />
-              <Image source={require('../assets/images/avatars/avatar-3.jpg')} className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high" />
+              <Image source={require('../../assets/images/avatars/avatar-1.jpg')} className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high" />
+              <Image source={require('../../assets/images/avatars/avatar-2.jpg')} className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high" />
+              <Image source={require('../../assets/images/avatars/avatar-3.jpg')} className="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-high" />
             </View>
             <Text className="font-label text-sm text-on-surface-variant">
               Join 2.4k others in Nollywood today

@@ -14,7 +14,7 @@ export default function JoinEliteScreen() {
       {/* Background Canvas */}
       <View className="absolute inset-0 z-0">
         <ImageBackground
-          source={require('../assets/images/hero/join-elite-bg.jpg')}
+          source={require('../../assets/images/hero/join-elite-bg.jpg')}
           className="absolute inset-0 w-full h-full opacity-40 scale-105"
           blurRadius={10}
         />
